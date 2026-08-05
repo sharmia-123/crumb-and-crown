@@ -103,25 +103,4 @@ setInterval(()=>{
   if (index>=imageDetails.length)
     index = 0
   imagePath.src=imageDetails[index];
-},3000)
-gsap.from(".how-we-make-pstry-lft-image", {
-    x: -200,
-    opacity: 0,
-    scrollTrigger: {
-        trigger: ".how-we-make-pstry",
-        start: "top 85%",
-        end: "top 35%",
-        scrub: 1
-    }
-});
-
-gsap.from(".how-we-make-pstry-rgt-txt", {
-    x: 200,
-    opacity: 0,
-    scrollTrigger: {
-        trigger: ".how-we-make-pstry",
-        start: "top 85%",
-        end: "top 35%",
-        scrub: 1
-    }
-});
+}, 6000)
