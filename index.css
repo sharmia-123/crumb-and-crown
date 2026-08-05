@@ -397,6 +397,7 @@
         /* padding: 40px 0; */
         height: 70vh;
         padding: 20px 0;
+        justify-content: center;
     }
     .product-section-one
     {
@@ -454,6 +455,10 @@
         .display-products
         {
             height: auto;
+        }
+        #hide-on-phone-logo
+        {
+            display: none;
         }
     }
     @media(max-width:480px)
@@ -550,5 +555,9 @@
         .Bst-slr-hdng
         {
             font-size: 2.4rem;
+        }
+        .brand-name
+        {
+            font-size: 3.5rem;
         }
     }
