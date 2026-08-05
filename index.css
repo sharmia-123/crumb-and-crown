@@ -458,6 +458,10 @@
     }
     @media(max-width:480px)
     {
+        body
+        {
+            overflow-x: hidden;
+        }
         .hide-on-phone,.hide-on-phone-one
         {
             display: none;
@@ -466,6 +470,10 @@
         {
             width: 100%;
             height: 100%;
+        }
+        #hide-on-phone-logo
+        {
+            display: none;
         }
         .box
         {
@@ -530,5 +538,17 @@
             flex-direction: column;
             height: auto;
             padding: 30px 0;
+        }
+        .main-body
+        {
+            height: 100vh;
+        }
+        .magic-box
+        {
+            width: 80%;
+        }
+        .Bst-slr-hdng
+        {
+            font-size: 2.4rem;
         }
     }
