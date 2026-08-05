@@ -1,0 +1,521 @@
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500&display=swap');
+*
+    {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: 'Times New Roman', Times, serif;
+    }
+    :root
+    {
+        --bg: #FFF8E7;
+        --txt: rgb(117, 14, 14);
+        --bgtwo:rgb(205, 38, 38);
+    }
+    html,
+    body
+    {
+        background-color: var(--bg);
+    }
+    .main-container
+    {
+        width: 100%;
+        height: 100vh;
+        background-color: var(--bg);
+        display: flex;
+        flex-direction: row;
+    }
+    .center-panel
+    {
+        width: 33.3%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+    }
+    .cont-top
+    {
+        width: 100%;
+        height: 40vh;
+    }
+    .brand-name
+    {
+        position: absolute;
+        top: 45%;
+        left: 25%;
+        font-size: 4rem;
+        width: 50%;
+        text-align: center;
+        font-weight: bold;
+        color: var(--txt);
+    }
+    .top-image
+    {
+        width: 35%;
+        height: 35%;
+        position: absolute;
+        left:30%;
+        top: 8%;
+    }
+    .top-image img
+    {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        margin-top: 70px;
+    }
+    .hero-image
+    {
+        width: 100%;
+        height: 60vh;
+    }
+    .hero-image img
+    {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .left-panel
+    {
+        width: 33.3%;
+        height: 100%;
+    }
+    .right-panel
+    {
+        width: 33.3%;
+        height: 100%;
+    }
+    .main-body
+    {
+        width: 100%;
+        height: 85vh;
+        background-color: var(--txt);
+        display: flex;
+        flex-direction: column;
+    }
+    .main-body-top
+    {
+        width: 100%;
+        height: 40%;
+        position: relative;
+    }
+    .main-body-bottom
+    {
+        width: 100%;
+        height: 70%;
+        display: flex;
+        flex-direction: row;
+    }
+    .main-body-bottom img
+    {
+        width: 33.3%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .main-body-name
+    {
+        color: var(--bg);
+        font-size: 5rem;
+        font-weight: bold;
+    }
+    #heading-small
+    {
+        font-weight: 100;
+    }
+    .box
+    {
+        width: 55%;
+        height: auto;
+        left:50%;
+        top: 130%;
+        transform: translate(-50%,-50%);
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .inner-box
+    {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+    }
+    .sub-text
+    {
+        color: white;
+        width: 60%;
+        text-align: center;
+    }
+    #cart-count
+    {
+        color: white;
+    }
+    #wishlist-count
+    {
+        color: white;
+    }
+    /*  */
+    .navbar
+    {
+        width: 100%;
+        height: 80px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 30px;
+        flex-wrap: wrap;
+    }
+    .logo
+    {
+        width: 120px;
+        font-size: 25px;
+        text-align: center;
+        font-weight: 300;
+        color: var(--bg);
+    }
+    .nav-cntr
+    {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+    }
+    .nav-cntr a
+    {
+        text-decoration: none;
+        color: white;
+        font-size: 17px;
+    }
+    .nav-rgt i
+    {
+        font-size: 25px;
+        color: white;
+    }
+    .nav-rgt a
+    {
+        text-decoration: none;
+        position: relative; 
+    }
+    .nav-rgt 
+    {
+        display: flex;
+        flex-direction: row;
+        gap: 25px;
+    }
+    .display-products
+    {
+        width: 100%;
+        height: 130vh;
+        background-color: var(--bg);
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        background-color: #FFF8E7;
+        gap: 30px;
+    }
+    .Bst-slr-hdng
+    {
+        font-size: 3rem;
+        font-weight: 900;
+        color: var(--txt);
+    }
+    .display-prdct-row
+    {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        height: 65vh;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+    .display-prdct-two
+    {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+    }
+    .product-description
+    {
+        padding: 10px 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .product-name
+    {
+        font-size: 19px;
+    }
+    .prduct-price
+    {
+        color: #2D211E;
+        font-size: 19px;
+    }
+    .product-icon
+    {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+    }
+    .product-icon i
+    {
+        font-size: 20px;
+        cursor: pointer;
+    }
+    .product-icon i
+    {
+        color: #000,
+    }
+    .card
+    {
+        width: 300px;
+        height: auto;
+        color: rgb(60, 1, 1);
+        /* background-color: var(--txt); */
+        border-radius: 15px;
+        background-color: #FFF3DA;
+        border: #E8D8C8;
+    }
+    .card img
+    {
+        width: 100%;
+        height: 290px;
+        border-radius: 15px;
+        object-fit: cover;
+    }
+    .product-row
+    {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .how-we-make-pstry
+    {
+        height: 65vh;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+    }
+    .how-we-make-pstry-lft-image
+    {
+        width: 50%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .how-we-make-pstry-lft-image img
+    {
+        width: 80%;
+        height: 80%;
+        object-fit: cover;
+        border-radius: 15px;
+    }
+    .how-we-make-pstry-rgt-txt
+    {
+        width: 50%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        color: var(--txt);
+        gap:20px;
+    }
+    .how-we-make-pstry-rgt-txt-hdng
+    {
+        font-size: 3rem;
+        font-weight: bold;
+    }
+    .bottom-container
+    {
+        width: 100%;
+        height: 20vh;
+        background-color: var(--txt);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .bottom-container-icon i
+    {
+        font-size: 40px;
+        color: white;
+        text-align: center;
+    }
+    /*  */
+    .magic-behind
+    {
+        width: 100%;
+        height: 80vh;
+        background-color: var(--txt);
+        margin-top: 50px;
+        position: relative;
+    }
+    .magic-box
+    {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 43%;
+        color: var(--bg);
+        transform: translate(-50%,-50%);
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        height: auto;
+        padding: 20px 0;
+        background-color: rgba(0,0,0,0.45);
+    }
+    .magic-main-txt
+    {
+        font-size: 2.3rem;
+        font-weight: bold;
+    }
+    .magic-btn button
+    {
+        width: 120px;
+        height: 50px;
+        border: none;
+        border-radius: 50px;
+    }
+    .magic-txt
+    {
+        font-size: 16px;
+    }
+    .magic-behind img
+    {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .product-section
+    {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 40px 0;
+    }
+    @media(max-width:480px)
+    {
+        
+        .center-panel
+        {
+            width: 100%;
+            height: 100%;
+        }
+        .left-panel
+        {
+            width: 10%;
+        }
+        .right-panel
+        {
+            width: 10%;
+        }
+        .top-image
+        {
+            width: 33%;
+        }
+        .cont-bottom
+        {
+            height: 55vh;
+        }
+        .brand-name
+        {
+            left:20%;
+            font-size: 3rem;
+        }
+        .navbar
+        {
+            padding: 0 10px;
+        }
+        .nav-cntr
+        {
+            gap:10px
+        }
+        .nav-rgt
+        {
+            gap: 10px;
+        }
+        .nav-rgt i 
+        {
+            font-size: 20px;
+        }
+        .main-body-name
+        {
+            font-size: 3.5rem;
+        }
+        .inner-box
+        {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+        }
+        .main-body-bottom img
+        {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .hide-on-phone
+        {
+            display: none;
+        }
+        .box
+        {
+            top: 120%;
+        }
+        .sub-text
+        {
+            width: 85%;
+            font-size: 18px;
+        }
+        .display-prdct-two
+        {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        .display-prdct-row
+        {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            height: auto;
+        }
+        .card
+        {
+            width: 350px;
+        }
+        .box
+        {
+            top: 140%;
+        }
+        .how-we-make-pstry
+        {
+            display: flex;
+            flex-direction: column;
+            padding-top: 30px;
+            height: auto;
+        }
+        .how-we-make-pstry-lft-image
+        {
+            width: 100%;
+        }
+        .how-we-make-pstry-rgt-txt
+        {
+            width: 100%;
+            padding: 0 30px;
+        }
+        .display-products
+        {
+            height: auto;
+        }
+        .main-body
+        {
+            height: 100vh;
+        }
+        .magic-box
+        {
+            width: 60%;        
+        }
+    }

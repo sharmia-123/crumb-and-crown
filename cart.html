@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart - Crumb & Crown</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+  <link href="index.css" rel="stylesheet">
+
+  <style>
+   :root
+    {
+        --bg: #FFF8E7;
+        --txt: rgb(117, 14, 14);
+        --bgtwo:rgb(205, 38, 38);
+    }
+
+  .cart-main {
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+  .cart-hdng {
+      text-align: center;
+      font-size: 3rem;
+      color: var(--txt);
+      margin-bottom: 30px;
+    }
+
+  .cart-itm {
+      background-color: #FFF3DA;
+      border: 1px solid #E8D8C8;
+      display: flex;
+      gap: 20px;
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      align-items: center;
+    }
+
+  .cart-box {
+      width: 100px;
+      height: 100px;
+      flex-shrink: 0;
+    }
+
+  .cart-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+  .cart-dtls {
+      flex: 1;
+    }
+
+  .qty-rw {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      margin-top: 8px;
+    }
+
+  .qty-btn {
+      width: 30px;
+      height: 30px;
+      background: var(--txt);
+      color: #FFF3DA;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+  .remove-btn {
+      background: var(--bgtwo);
+      color: #fff;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+  .cart-total {
+      text-align: right;
+      font-size: 22px;
+      font-weight: bold;
+      color: var(--txt);
+      margin: 25px 0;
+    }
+
+  .btn-rw {
+      display: flex;
+      gap: 12px;
+      justify-content: flex-end;
+    }
+
+  .btn,.clear-btn {
+      padding: 12px 18px;
+      background: var(--txt);
+      color: #FFF3DA;
+      border: none;
+      border-radius: 6px;
+      text-decoration: none;
+      cursor: pointer;
+      font-size: 15px;
+    }
+
+  .empty-txt {
+      text-align: center;
+      font-size: 18px;
+      color: var(--txt);
+      margin-top: 50px;
+    }
+
+  .nav-rgt a {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    #wishlist-count, #cart-count {
+      color: #000;
+      font-size: 15px;
+      font-weight: 600;
+      margin-left: 2px;
+    }
+
+   .logo
+    {
+        width: 120px;
+        font-size: 25px;
+        text-align: center;
+        font-weight: 300;
+        color: var(--txt);
+    }
+
+   .nav-rgt i
+    {
+      color: #000;
+    }
+
+   .nav-cntr a
+    {
+      color: #000;
+    }
+
+    @media(max-width: 600px) {
+    .cart-itm {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    .cart-box {
+        width: 100%;
+        height: 180px;
+      }
+    .btn-rw {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="navbar">
+    <div class="logo">CRUMB & CROWN</div>
+    <div class="nav-cntr">
+      <a href="index.html">Home</a>
+      <a href="products.html">Best Sellers</a>
+    </div>
+    <div class="nav-rgt">
+      <a href="wishlist.html">
+        <i class="fa-regular fa-heart"></i>
+        <span id="wishlist-count">0</span>
+      </a>
+      <a href="cart.html">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <span id="cart-count">0</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="cart-main">
+    <h1 class="cart-hdng">Your Cart</h1>
+    <div id="cart-container"></div>
+    <div class="cart-total" id="total"></div>
+    <div class="btn-rw" id="btns"></div>
+  </div>
+
+  <script>
+    let cart = JSON.parse(localStorage.getItem('crumb_cart'))
+            || JSON.parse(localStorage.getItem('cart'))
+            || JSON.parse(localStorage.getItem('wishlist'))
+            || [];
+
+    let wishlist = JSON.parse(localStorage.getItem('crumb_wishlist'))
+                || JSON.parse(localStorage.getItem('wishlist'))
+                || [];
+
+    const container = document.getElementById('cart-container');
+
+    function saveToStorage() {
+      localStorage.setItem('crumb_cart', JSON.stringify(cart));
+    }
+
+    function updateCounts() {
+      const wishCountEl = document.getElementById('wishlist-count');
+      const cartCountEl = document.getElementById('cart-count');
+
+      if (wishCountEl) {
+        wishCountEl.innerText = wishlist.length;
+      }
+      if (cartCountEl) {
+        const totalQty = cart.reduce((total, item) => total + (item.qty || 1), 0);
+        cartCountEl.innerText = totalQty;
+      }
+    }
+
+    function renderCart() {
+      container.innerHTML = '';
+      let total = 0;
+
+      if (cart.length === 0) {
+        container.innerHTML = '<p class="empty-txt">Your cart is empty</p>';
+        document.getElementById('total').innerHTML = '';
+        document.getElementById('btns').innerHTML = '<a href="index.html" class="btn">Continue Shopping</a>';
+        updateCounts();
+        return;
+      }
+
+      cart.forEach((item, index) => {
+        if (!item.qty) item.qty = 1;
+        total += Number(item.price) * item.qty;
+
+        const cartItem = document.createElement('div');
+        cartItem.className = 'cart-itm';
+        cartItem.innerHTML = `
+          <div class="cart-box">
+            <img src="${item.img}" alt="${item.name}">
+          </div>
+          <div class="cart-dtls">
+            <div class="product-name">${item.name}</div>
+            <div class="prduct-price">Rs.${Number(item.price).toLocaleString('en-IN')}</div>
+            <div class="qty-rw">
+              <button class="qty-btn" onclick="updateQty(${index}, -1)">-</button>
+              <span>${item.qty}</span>
+              <button class="qty-btn" onclick="updateQty(${index}, 1)">+</button>
+            </div>
+          </div>
+          <div class="product-icon">
+            <button class="remove-btn" onclick="removeItem(${index})">
+              <i class="fa-solid fa-trash"></i>
+            </button>
+          </div>
+        `;
+        container.appendChild(cartItem);
+      });
+
+      document.getElementById('total').innerHTML = `Total: Rs.${total.toLocaleString('en-IN')}`;
+
+      
+      document.getElementById('btns').innerHTML = `
+        <a href="index.html" class="btn">Continue Shopping</a>
+        <button class="clear-btn" onclick="clearCart()">Clear Cart</button>
+      `;
+
+      updateCounts();
+    }
+
+    function updateQty(index, change) {
+      cart[index].qty += change;
+      if (cart[index].qty <= 0) {
+        cart.splice(index, 1);
+      }
+      saveToStorage();
+      renderCart();
+    }
+
+    function removeItem(index) {
+      cart.splice(index, 1);
+      saveToStorage();
+      renderCart();
+    }
+
+    
+    function clearCart() {
+      if(confirm("Are you sure you want to clear your cart?")) {
+        cart = [];
+        saveToStorage();
+        renderCart();
+      }
+    }
+
+    renderCart();
+  </script>
+</body>
+</html>
