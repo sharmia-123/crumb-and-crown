@@ -49,7 +49,6 @@
         font-weight: bold;
         color: var(--txt);
     }
-    /*  */
     .top-image
     {
         width: 35%;
@@ -188,8 +187,10 @@
     }
     .sub-txt
     {
-        color: white;
+        max-width:320px;
+        font-size:15px;
         text-align: center;
+        color: white;
     }
     #main-hdng-two
     {
@@ -502,7 +503,7 @@
         {
             display: none;
         }
-        .main-body-bottom-box
+        .main-body-bottom-box img
         {
             width: 100%;
             height: 100%;
@@ -561,9 +562,9 @@
         }
         .brand-name
         {
-            font-size: 3rem;
+            font-size: 2.6rem;
             text-align: center;
-            left: 20%;
+            left: 22%;
         }
         .magic-box
         {
@@ -588,8 +589,8 @@
         }
         .top-image
         {
-            top: 5.5%;
-            left: 32%;
+            top: 8%;
+            left: 34%;
         }
         .nav-rgt i
         {
@@ -599,8 +600,12 @@
         {
             font-size: 14px;
         }
+        .main-body
+        {
+            height: 80vh;
+        }
         .logo
         {
-            font-size: 19px;
+            font-size: 18px;
         }
     }
