@@ -146,6 +146,18 @@
     {
         color: #2D211E; 
     }
+    @media(max-width:768px)
+    {
+        .display-products-row
+        {
+            display: flex;
+            flex-direction: row;
+            scroll-behavior: smooth;
+            overflow-x: auto;
+            justify-content:flex-start;
+            overflow-y: hidden;
+        }
+    }
     @media(max-width:480px)
     {
         .card
@@ -169,17 +181,14 @@
         {
             gap: 10px;
         }
-        
-    }
-    @media(max-width:768px)
-    {
         .display-products-row
         {
             display: flex;
-            flex-direction: row;
-            scroll-behavior: smooth;
-            overflow-x: auto;
-            justify-content:flex-start;
-            overflow-y: hidden;
+            flex-direction: column;
+        }
+        .display-products-two
+        {
+            display: flex;
+            flex-direction: column;
         }
     }
